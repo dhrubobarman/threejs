@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
-
+html,
+body {
+  background-color: #1a2027;
+}
 html,
 body,
 root,
@@ -10,4 +13,11 @@ canvas {
   height: 100%;
   margin: 0;
   overflow: hidden;
+}
+canvas {
+  height: 100vh !important;
+}
+.height0 {
+  height: 0 !important;
+  display: none;
 }
