@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import Components from './component/Components';
 // import { Html } from '@react-three/drei';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Loader from './component/Assets/Loader';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Header from './component/Header';

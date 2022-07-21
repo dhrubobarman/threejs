@@ -5,11 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MouseOutlinedIcon from "@mui/icons-material/MouseOutlined";
-import {
-  AiOutlineInteraction,
-  AiOutlineCar,
-  AiOutlineFullscreen,
-} from "react-icons/ai";
+import { AiOutlineInteraction, AiOutlineFullscreen } from "react-icons/ai";
 import { FaExpand } from "react-icons/fa";
 
 import { IconButton } from "@mui/material";
