@@ -35,8 +35,8 @@ const LoaderContainer = () => {
     <ThemeProvider theme={darkTheme}>
 
       <Box sx={{ ...customStyles.loader }}>
-        <Loader sx={{ color: '#121212', width: '20vw', height: '20vw' }} />
-        <Typography color="white">Loading Experience...</Typography>
+        <Loader sx={{ color: '#1e1e1e', width: '20vw', height: '20vw' }} />
+        <Typography mt={2} color="white">Loading Please Wait.🏎️🚨...</Typography>
       </Box>
     </ThemeProvider>
   )
