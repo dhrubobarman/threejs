@@ -1,3 +1,4 @@
+import React, { useRef, useEffect } from "react";
 import { EffectComposer, DepthOfField } from "@react-three/postprocessing";
 // import { BlendFunction } from "postprocessing";
 import {
@@ -11,11 +12,29 @@ import { Car } from "./Car";
 import { Ground } from "./Ground";
 import { FloatingGrid } from "./FloatingGrid";
 import { Rings } from "./Rings";
+import { useThree } from "@react-three/fiber";
+
+function Controls() {
+  const ref = useRef();
+  const { invalidate, camera, gl } = useThree();
+  useEffect(() => {
+    ref.current.addEventListener("change", invalidate);
+    return () => ref.current.removeEventListener("change", invalidate);
+  }, []);
+  return (
+    <OrbitControls
+      ref={ref}
+      args={[camera, gl.domElement]}
+      target={[0, 0.35, 0]}
+      maxPolarAngle={1.45}
+    />
+  );
+}
 
 const Components = () => {
   return (
     <>
-      <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
+      <Controls />
 
       <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
 

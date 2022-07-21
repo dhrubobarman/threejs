@@ -48,7 +48,7 @@ function App() {
       <Header />
 
       <Suspense fallback={<LoaderContainer />} >
-        <Canvas shadows>
+        <Canvas shadows frameloop="demand">
           <Components />
         </Canvas>
       </Suspense>
