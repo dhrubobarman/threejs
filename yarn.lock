@@ -9039,6 +9039,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-fullscreen@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/use-fullscreen/-/use-fullscreen-0.0.5.tgz#ad18151cf5f91550ffabeb6740a6a469be9eeee2"
+  integrity sha512-t1UfX7jJOR5Jso3NiLn6j1J33e//Jmcp03It0IxrCI5QJ8E48TNIu6q1GaUciCrmiZmyb3EhnDlSPi5kVbgcwA==
+
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
