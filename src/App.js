@@ -26,7 +26,8 @@ const customStyles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: 'rgb(26, 32, 39)'
   }
 }
 
@@ -48,11 +49,11 @@ function App() {
       <Header />
 
       <Suspense fallback={<LoaderContainer />} >
-        <Canvas shadows>
+        <Canvas shadows frameloop="demand">
           <Components />
         </Canvas>
       </Suspense>
-
+      {/* <LoaderContainer /> */}
     </ThemeProvider >
   );
 }
