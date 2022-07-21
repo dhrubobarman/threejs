@@ -1,37 +1,37 @@
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import React from "react";
-import { Ground } from "./Ground";
+import React, { useEffect } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Mesh } from "three";
 
-const Car = () => {
-  return (
-    <>
-      <OrbitControls target0={[0, 0.35, 0]} maxPolarAngle={1.45} />
-      <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
-
-      <color args={[0, 0, 0]} attach="background" />
-
-      <spotLight
-        color={[1, 0.25, 0.7]}
-        intensity={1.5}
-        angle={0.6}
-        penumbra={0.5}
-        position={[5, 5, 0]}
-        castShadow
-        shadow-bias={-0.0001}
-      />
-
-      <spotLight
-        color={[0.14, 0.5, 1]}
-        intensity={2}
-        angle={0.6}
-        penumbra={0.5}
-        position={[-5, 5, 0]}
-        castShadow
-        shadow-bias={-0.0001}
-      />
-      <Ground />
-    </>
+// based on "Chevrolet Corvette (C7)" (https://sketchfab.com/3d-models/chevrolet-corvette-c7-2b509d1bce104224b147c81757f6f43a)
+// by Martin Trafas (https://sketchfab.com/Bexxie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+export function Car() {
+  const gltf = useLoader(
+    GLTFLoader,
+    process.env.PUBLIC_URL + "models/car/scene.gltf"
   );
-};
 
-export default Car;
+  useEffect(() => {
+    gltf.scene.scale.set(0.005, 0.005, 0.005);
+    gltf.scene.position.set(0, -0.035, 0);
+    gltf.scene.traverse((object) => {
+      if (object instanceof Mesh) {
+        object.castShadow = true;
+        object.receiveShadow = true;
+        object.material.envMapIntensity = 20;
+      }
+    });
+  }, [gltf]);
+
+  useFrame((state, delta) => {
+    let t = state.clock.getElapsedTime();
+
+    let group = gltf.scene.children[0].children[0].children[0];
+    group.children[0].rotation.x = t * 2;
+    group.children[2].rotation.x = t * 2;
+    group.children[4].rotation.x = t * 2;
+    group.children[6].rotation.x = t * 2;
+  });
+
+  return <primitive object={gltf.scene} />;
+}

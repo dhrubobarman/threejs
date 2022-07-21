@@ -1,7 +1,7 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import Car from './component/Car';
+import Components from './component/Components';
 // import { Html } from '@react-three/drei';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
       <Suspense fallback={null}>
         <Canvas shadows>
-          <Car />
+          <Components />
         </Canvas>
       </Suspense>
     </div>
