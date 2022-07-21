@@ -1,16 +1,13 @@
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import React from "react";
-import { angleToRadians } from "../../utils/angle";
+import { Ground } from "./Ground";
 
 const Car = () => {
   return (
     <>
       <OrbitControls target0={[0, 0.35, 0]} maxPolarAngle={1.45} />
       <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
-      {/* <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshBasicMaterial color={"red"} />
-      </mesh> */}
+
       <color args={[0, 0, 0]} attach="background" />
 
       <spotLight
@@ -32,6 +29,7 @@ const Car = () => {
         castShadow
         shadow-bias={-0.0001}
       />
+      <Ground />
     </>
   );
 };
